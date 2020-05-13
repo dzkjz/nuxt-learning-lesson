@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>Hello World!</h1>
-    <no-ssr>
+    <client-only>
       <v-select v-model="selected" placeholder="Select Category" :options="['foo','bar']"></v-select>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 <script>
