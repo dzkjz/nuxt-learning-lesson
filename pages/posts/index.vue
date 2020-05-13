@@ -3,6 +3,7 @@
     <h2>Making API request - the Vue way</h2>
     <div class="container row">
       <Card class="ml-auto mr-auto" v-for="post in posts" :key="post.id" :post="post"></Card>
+      <button class="btn btn-danger" v-scroll-to="'body'">Back to Top</button>
     </div>
   </div>
 </template>
@@ -48,10 +49,10 @@
     //   let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
     //   store.dispatch('setPosts', data);
     // },
-    async fetch({store}) {
-      let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      store.dispatch('setPosts', data);
-    },
+    // async fetch({store}) {
+    //   let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    //   store.dispatch('setPosts', data);
+    // },
     head: {
       title: 'List of posts',
     }

@@ -39,10 +39,22 @@ export default {
   css: [
     '@/assets/styles/main.css',
   ],
+
+  transition: {
+    name: 'fade',
+    mode: 'out-in',
+  },
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    '@/plugins/scrollto.js',
+    // '@/plugins/vueselect.js',
+    {
+      src: "@/plugins/vueselect.js",
+      ssr: false,//SSR服务端渲染为false
+    }
+  ],
   /*
   ** Nuxt.js dev-modules
   */
@@ -50,9 +62,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    ['vue-scrollto/nuxt', {duration: 300}],
-  ],
+  modules: [],
   /*
   ** Build configuration
   */
