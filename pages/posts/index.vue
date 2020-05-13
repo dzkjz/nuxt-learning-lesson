@@ -11,15 +11,23 @@
   import axios from 'axios';
   import Card from "../../components/Card";
 
+  import {mapGetters} from 'vuex';
+
   export default {
     name: "index.vue",
     components: {
       Card,
     },
-    data() {
-      return {
-        posts: [],
-      }
+    // data() {
+    //   return {
+    //     posts: [],
+    //   }
+    // },
+    computed: {
+      ...mapGetters(['posts']),
+      // allPosts() {
+      //   return this.$store.getters.posts;
+      // }
     },
     // mounted() {
     //   axios.get('https://jsonplaceholder.typicode.com/todos')
@@ -31,9 +39,18 @@
     //       console.log(error);
     //     })
     // },
-    async asyncData(context) {
+    // async asyncData(context) {
+    //   let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    //   return {posts: data};
+    // },
+
+    // async asyncData({store}) {
+    //   let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    //   store.dispatch('setPosts', data);
+    // },
+    async fetch({store}) {
       let {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      return {posts: data};
+      store.dispatch('setPosts', data);
     },
     head: {
       title: 'List of posts',
